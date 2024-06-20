@@ -4,7 +4,7 @@ import Acceso from './access/page'
 
 export default function App() {
   return (
-    <body>
+    <div>
       <section><Acceso /></section>
-    </body>
+    </div>
   )}
