@@ -5,27 +5,20 @@ html {
   margin: 0;
   padding: 0;
   max-width: 100%;
-  overflow: auto;
 }
 
 /* Estilo para la pantalla verde */
 .green-bg {
   background-color: #5E665C;
-  height: 100%;
-  max-width: 100%;
   margin: 0;
   padding: 0;
-  overflow: auto;
 }
 
 /* Estilo para la pantalla blanca */
 .white-bg {
   background-color: #ffffff;
-  height: 100%;
-  max-width: 100%;
   margin: 0;
   padding: 0;
-  overflow: auto;
 }
 
 
@@ -33,7 +26,6 @@ html {
 .Main {
   background: #5E665C;
   max-width: 100%;
-  max-height: 100vh;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -41,7 +33,6 @@ html {
 
 /* Estilos para la parte media del acceso */
 .medium {
-  margin-top:30%;
   padding: 15px;
   justify-content: center;
   align-items: center;
@@ -76,7 +67,14 @@ html {
   border-top: 2px solid #E9F69B;
   height: 5rem;
   text-align: center;
+  margin-top: 20px;
 }
+
+/* Estilos para un espaciador entre el END y el Card */
+.Spacer{
+padding: 50px;
+}
+
 
 .footti {
   font-size: 18px; 
@@ -119,7 +117,7 @@ html {
 /* Estilos para el div que contiene la parte central de la pantalla de login */
 .Mid {
   text-align: center;
-  margin-top: 40%;
+  margin-top: 80px;
 }
 
 /* Estilos para los inputs del login  */
@@ -139,21 +137,23 @@ html {
   color: #000000; 
   font-size: 12px; 
   text-decoration: underline;
-  margin-left: 55%;
+  margin-left:60%;
+
 }
 
 /* Estilos para el boton al final del login */
 .END{
   font-size: 25px;
   text-align: center;
-  margin-top: 40%;
+  margin-top: 100px;
 }
 
 /* Estilos para el boton al final de la pantalla de crear cuenta */
 .ENDL{
   font-size: 25px;
   text-align: center;
-  margin-top: 12%;  
+  margin-top: 70px;
+  margin-bottom: 50px;
 }
 
 /* Estilos para el segmento central de la pantalla cambio con exito*/
@@ -177,15 +177,16 @@ html {
   font-size: 25px;
   padding: 3px;
   margin-top: 12%;
-  text-align: justify;
+  text-align: center;  
 }
 
 /* Estilos para el ultimo textbox de cambio exitoso */
 .textboxE {
   background-color: #C4C4C4;
   font-size: 25px;
-  padding: 3px;
+  padding: 10px;
   margin-top: 12%;
+  border: 3px solid #E9F69B;
 }
 
 /* Estilos para el div de los inputs en la pantalla de crear cuenta */
@@ -196,8 +197,7 @@ html {
 /* Estilos para el boton enviar de la pantalla de recuperar cuenta1 */
 .MidC {
   text-align: center;
-  margin-bottom: 30px;
-  margin-top: 20%;
+  margin-bottom: 12%;
 }
 
 

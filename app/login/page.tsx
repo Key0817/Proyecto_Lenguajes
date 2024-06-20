@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 
-
 export default function Login() {
     return (
         <body className="green-bg" >
@@ -17,15 +16,17 @@ export default function Login() {
                 <input className="TXTinputs" type="password" placeholder="Contraseña:" />
                 <br></br>
             </div>
-            <Link className="forgot" href="/recuperar/recuperar1">Olvidaste tu contraseña?</Link> 
+            <Link className="forgot" href="/recuperar/recuperar1">Olvidaste tu contraseña?</Link>
             <div className="END">
 
                 <Link className="btnI" href='/'>Iniciar Sesión</Link>
 
                 <br></br>
-                <Link className="having" href={'/login/signin'}>No tienes una cuenta ? <span>Crear</span></Link> 
+                <Link className="having" href={'/login/signin'}>No tienes una cuenta ? <span>Crear</span></Link>
             </div>
 
+            <div className="Spacer"></div>
+            
             <div className="card">
                 <h3 className="footti">S.H.T Golfito</h3>
                 <h4 className="footti2">Sistema de Horarios de Transporte</h4>

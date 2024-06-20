@@ -25,6 +25,8 @@ export default function SignIn() {
                 <br></br>
                 <Link className="having" href={'/login'}>Ya tienes una cuenta ? <span>Registrar</span></Link> {/* // Cambiar el href en el futuro */}
             </div>
+            <div className="Spacer"></div>
+
             <div className="card">
                 <h3 className="footti">S.H.T Golfito</h3>
                 <h4 className="footti2">Sistema de Horarios de Transporte</h4>

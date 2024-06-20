@@ -18,7 +18,7 @@ export default function Rrecuperar3() {
                 <Link className="btnI" href='/recuperar/exito'>Cambiar</Link>
 
             </section>
-
+            <div className="Spacer"></div>
             <div className="card">
                 <h3 className="footti">S.H.T Golfito</h3>
                 <h4 className="footti2">Sistema de Horarios de Transporte</h4>

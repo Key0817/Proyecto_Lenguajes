@@ -19,7 +19,7 @@ export default function Rrecuperar2() {
                 </div>
                 <Link className='btnI' href='/recuperar/recuperar3'>Continuar</Link>
             </section>
-
+            <div className="Spacer"></div>
             <div className="card">
                 <h3 className="footti">S.H.T Golfito</h3>
                 <h4 className="footti2">Sistema de Horarios de Transporte</h4>
