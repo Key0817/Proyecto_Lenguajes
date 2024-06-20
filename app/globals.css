@@ -1,0 +1,204 @@
+/* Estilo para el fondo de toda la pantalla */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow: auto;
+}
+
+/* Estilo para la pantalla verde */
+.green-bg {
+  background-color: #5E665C;
+  height: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+/* Estilo para la pantalla blanca */
+.white-bg {
+  background-color: #ffffff;
+  height: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+
+/* Estilos para la parte de acceso */
+.Main {
+  background: #5E665C;
+  max-width: 100%;
+  max-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Estilos para la parte media del acceso */
+.medium {
+  margin-top:30%;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+/*Estilos al boton de crear cuenta */
+.btnI {
+  background: linear-gradient(to bottom, #E9F69B, #E9F69B);
+  border-radius: 20px;
+  color: black;
+  font-weight: bold;
+  padding: 10px 35px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Estilos para el enlace al pasar el mouse */
+.btnI:hover {
+  background: linear-gradient(to bottom, #75ee41, #75ee41);
+}
+
+/*Estilos del footer*/
+.card {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #C4C4C4;
+  border-top: 2px solid #E9F69B;
+  height: 5rem;
+  text-align: center;
+}
+
+.footti {
+  font-size: 18px; 
+  font-family: 'Arial', sans-serif;
+  color: #5E665C; 
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0
+}
+
+.footti2 {
+  font-size: 15px; 
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  color: #5E665C; 
+  margin-top: 10px;
+}
+
+/* Estilos para los encabezados de ingreso de cuenta  */
+.navbar {
+  background-color: #C4C4C4;
+  border-bottom: 2px solid #E9F69B;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  
+  
+}
+
+/* Estilos para el titulo de la pantalla */
+.Tittle {
+  font-size: 28px; 
+  color: #000; 
+  font-weight: bold; 
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+/* Estilos para el div que contiene la parte central de la pantalla de login */
+.Mid {
+  text-align: center;
+  margin-top: 40%;
+}
+
+/* Estilos para los inputs del login  */
+.TXTinputs {
+  border-radius: 12px;
+  border: 2px solid #E9F69B; 
+  background-color: #C4C4C4; 
+  padding: 12px; 
+  margin-top: 35px; 
+  width: 65%; 
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+/* Estilos para la parte de "Olvidaste tu contraseña" */
+.forgot {
+  color: #000000; 
+  font-size: 12px; 
+  text-decoration: underline;
+  margin-left: 55%;
+}
+
+/* Estilos para el boton al final del login */
+.END{
+  font-size: 25px;
+  text-align: center;
+  margin-top: 40%;
+}
+
+/* Estilos para el boton al final de la pantalla de crear cuenta */
+.ENDL{
+  font-size: 25px;
+  text-align: center;
+  margin-top: 12%;  
+}
+
+/* Estilos para el segmento central de la pantalla cambio con exito*/
+.ENDE{
+  font-size: 25px;
+  text-align: center;
+  margin-top: 30%;
+  margin-bottom: 30%;
+}
+
+/* Estilos para "No tienes cuenta?" */
+.having {
+  color: #000000; 
+  font-size: 16px; 
+  text-decoration: underline;
+}
+
+/* Estilo para los textos que te indican que hace en el proceso de recuperar contraseña */
+.textbox {
+  background-color: #C4C4C4;
+  font-size: 25px;
+  padding: 3px;
+  margin-top: 12%;
+  text-align: justify;
+}
+
+/* Estilos para el ultimo textbox de cambio exitoso */
+.textboxE {
+  background-color: #C4C4C4;
+  font-size: 25px;
+  padding: 3px;
+  margin-top: 12%;
+}
+
+/* Estilos para el div de los inputs en la pantalla de crear cuenta */
+.MidL {
+  text-align: center;
+}
+
+/* Estilos para el boton enviar de la pantalla de recuperar cuenta1 */
+.MidC {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20%;
+}
+
+
+
