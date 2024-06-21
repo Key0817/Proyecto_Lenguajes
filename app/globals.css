@@ -226,6 +226,14 @@ html {
   margin-bottom: 60px;
 }
 
+/* Estilos para la imagen de perfil */
+.TOP img {
+  border-radius: 50%;
+  width: 161px; 
+  height: 151px; 
+  object-fit: cover; 
+}
+
 #correo {
   margin: 0;
   color: #0010EE;
