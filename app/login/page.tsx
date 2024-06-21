@@ -19,7 +19,8 @@ export default function Login() {
             <Link className="forgot" href="/recuperar/recuperar1">Olvidaste tu contraseña?</Link>
             <div className="END">
 
-                <Link className="btnI" href='/'>Iniciar Sesión</Link>
+                <Link className="btnI" href='/configuraciones'>Iniciar Sesión</Link>
+                 {/*Cambiar este enlace en el futuro, solo es para probar la pantalla de consiguraciones*/}
 
                 <br></br>
                 <Link className="having" href={'/login/signin'}>No tienes una cuenta ? <span>Crear</span></Link>
