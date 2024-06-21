@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import React from "react";
 import { useState } from "react";
 import Image from "next/image";
@@ -15,6 +15,10 @@ export default function EditProfile() {
         }
     };
 
+    const handleImageClick = () => {
+        document.getElementById('fileInput')?.click();
+    };
+
     return (
         <body className="white-bg">
             <nav className="navbarEF">
@@ -27,12 +31,9 @@ export default function EditProfile() {
 
             <h3 style={{ textAlign: 'center', padding: 20 }}>Informacion de la Cuenta</h3>
 
-            <div className="TOP">
+            <div className="TOP" onClick={handleImageClick}>
                 {selectedImage ? (
-                    <img
-                        src={URL.createObjectURL(selectedImage)}
-                        alt="Imagen de perfil"
-                    />
+                    <img src={URL.createObjectURL(selectedImage)} alt="Imagen de perfil" />
                 ) : (
                     <Image
                         src="/Iconos/Perfil.png"
@@ -41,7 +42,13 @@ export default function EditProfile() {
                         alt="Imagen de perfil predeterminada"
                     />
                 )}
-                <input type="file" accept="image/*" onChange={handleImageChange} />
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    id="fileInput"
+                    style={{ display: 'none' }} 
+                />
             </div>
 
             <div className="MTP">
