@@ -1,0 +1,420 @@
+/* <<<<< Estilos para los fondos de la pantalla o el lienzo  >>>>> */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  background-color: #5E665C;
+}
+
+/* Estilo para la pantalla verde */
+
+
+
+
+/* <<<<< Estilos Para las pantallas del login y acceso >>>>>*/
+
+
+/* Estilos para la parte de acceso */
+.Main {
+  background: #5E665C;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Estilos para la parte media del acceso */
+.medium {
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+/*Estilos al boton de crear cuenta */
+.btnI {
+  background: linear-gradient(to bottom, #E9F69B, #E9F69B);
+  border-radius: 20px;
+  color: black;
+  font-weight: bold;
+  padding: 10px 35px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-color: #000;
+}
+
+/* Estilos para el enlace al pasar el mouse */
+.btnI:hover {
+  background: linear-gradient(to bottom, #75ee41, #75ee41);
+}
+
+/*Estilos del footer*/
+.card {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #C4C4C4;
+  border-top: 2px solid #E9F69B;
+  height: 5rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Estilos para un espaciador entre el END y el Card */
+.Spacer {
+  padding: 50px;
+
+}
+
+
+.footti {
+  font-size: 18px;
+  font-family: 'Arial', sans-serif;
+  color: #5E665C;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0
+}
+
+.footti2 {
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  color: #5E665C;
+  margin-top: 10px;
+}
+
+/* Estilos para los encabezados de ingreso de cuenta  */
+.navbar {
+  background-color: #C4C4C4;
+  border-bottom: 2px solid #E9F69B;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+/* Estilos para el titulo de la pantalla */
+.Tittle {
+  font-size: 28px;
+  color: #000;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+/* Estilos para el div que contiene la parte central de la pantalla de login */
+.Mid {
+  text-align: center;
+  margin-top: 80px;
+}
+
+/* Estilos para los inputs del login  */
+.TXTinputs {
+  border-radius: 12px;
+  border: 2px solid #E9F69B;
+  background-color: #C4C4C4;
+  padding: 12px;
+  margin-top: 35px;
+  width: 65%;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+/* Estilos para la parte de "Olvidaste tu contraseña" */
+.forgot {
+  color: #000000;
+  font-size: 12px;
+  text-decoration: underline;
+  margin-left: 60%;
+
+}
+
+/* Estilos para el boton al final del login */
+.END {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+/* Estilos para el boton al final de la pantalla de crear cuenta */
+.ENDL {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+/* Estilos para el segmento central de la pantalla cambio con exito*/
+.ENDE {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 30%;
+  margin-bottom: 30%;
+}
+
+/* Estilos para "No tienes cuenta?" */
+.having {
+  color: #000000;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+/* Estilo para los textos que te indican que hace en el proceso de recuperar contraseña */
+.textbox {
+  background-color: #C4C4C4;
+  font-size: 25px;
+  padding: 3px;
+  margin-top: 12%;
+  text-align: center;
+}
+
+/* Estilos para el ultimo textbox de cambio exitoso */
+.textboxE {
+  background-color: #C4C4C4;
+  font-size: 25px;
+  padding: 10px;
+  margin-top: 12%;
+  border: 3px solid #E9F69B;
+}
+
+/* Estilos para el div de los inputs en la pantalla de crear cuenta */
+.MidL {
+  text-align: center;
+}
+
+/* Estilos para el boton enviar de la pantalla de recuperar cuenta1 */
+.MidC {
+  text-align: center;
+  margin-bottom: 12%;
+}
+
+
+/*<<<<< Estilos para las pantallas de configuraciones >>>>> */
+
+/* Estilos para el encabezado de configuraciones  */
+.navbarconf {
+  background-color: #C4C4C4;
+  border-bottom: 2px solid #E9F69B;
+  padding: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Estilos al contenedor de la imagen y el correo y nombre de Usuario*/
+.TOP {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+/* Estilos para la imagen de perfil */
+.TOP img {
+  border-radius: 50%;
+  width: 161px; 
+  height: 151px; 
+  object-fit: cover; 
+}
+
+#correo {
+  margin: 0;
+  color: #0010EE;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.Titulo {
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+}
+
+/* Estilos a las lineas que separan el contenido en las cofiguraciones  */
+.LineaA {
+  height: 2px;
+  background-color: #E9F69B;
+  width: 100%;
+}
+
+.LineaN {
+  height: 2px;
+  background-color: #000;
+  width: 100%;
+
+}
+
+/* Estilos para el contenedor de método de pago */
+.MTP {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+#subtitulo {
+  font-size: 22px;
+  padding: 0;
+  margin-left: 15px;
+}
+
+.MTPE {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  height: 60px;
+  text-decoration: none;
+  color: #000;
+}
+
+.MTPE p {
+  margin-right: auto;
+}
+
+.MTPE img {
+  margin-right: 10px;
+}
+
+/* Estilos en el contenedor de configuracion de cuenta  */
+.CONF {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  height: 55px;
+  margin-top: 16px;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Estilos para la navegacion del footer */
+
+.tabnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-top: 3px solid #E9F69B;
+  height: 5rem;
+  text-align: center;
+}
+
+.tabnav img {
+  margin-left: 45px;
+  margin-right: 45px;
+}
+
+#perfile {
+  border-bottom: 4px solid #0010EE;
+}
+
+/* Estilos en la pantalla de efectivo */
+.textboxEf {
+  background-color: #C4C4C4;
+  font-size: 28px;
+  margin-top: 12%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.Info {
+  color: #000;
+  margin-left: 25px;
+  margin-top: 60px;
+}
+
+.Info p {
+  color: #000;
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+#SubT {
+  text-decoration: underline;
+}
+
+.navbarEF {
+  background-color: #C4C4C4;
+  border-bottom: 2px solid #E9F69B;
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#center {
+  margin-right: 70px;
+  text-align: center;
+}
+
+/* Estilos para la pantalla de TARJETA */
+.NumberTarjet {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.NumberTarjet img {
+  position: absolute;
+  top: 50%;
+  left:18%;
+  transform: translateY(-50%);
+
+}
+
+.NumberTarjet input {
+  border-radius: 12px;
+  border: 3px solid #E9F69B;
+  background-color: #FFFFFF;
+  padding: 12px;
+  font-size: 20px;
+  width: 75%; 
+  text-align: center;
+  box-shadow: #5E665C;
+}
+
+.CCV{
+  display: flex;
+  justify-content:space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.CCV input {
+  border-radius: 12px;
+  border: 3px solid #E9F69B;
+  background-color: #FFFFFF;
+  padding: 12px;
+  font-size: 20px;
+  width: 28%;
+  text-align: center;
+  box-shadow: #5E665C;
+}
+
+/* Estilos para la pantalla de cambiar nombre  */
+.txinpusC {
+  border-radius: 12px;
+  border: 4px solid #E9F69B;
+  background-color: #ffffff;
+  padding: 12px;
+  margin-top: 25px;
+  width: 65%;
+  font-size: 20px;
+  margin-bottom: 12px;
+  box-shadow: #5E665C;
+}

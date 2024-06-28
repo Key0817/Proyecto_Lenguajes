@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import '/app/configuraciones/conf.css'
 
 export default function Perfil() {
     return (
-        <body className="white-bg">
+        <div className="white-bg">
             <nav className="navbarconf">
                 <h3 className="footti">S.H.T Golfito</h3>
                 <h4 className="footti2">Sistema de Horarios de Transporte</h4>
@@ -56,6 +57,6 @@ export default function Perfil() {
                 <Link href='/'> <Image src={'/Iconos/Principal.png'} width={50} height={50} alt="Icono de casita" /></Link>
                 <Link href='/configuraciones'><Image id="perfile" src={'/Iconos/Usuario.png'} width={50} height={50} alt="Icono de usuario" /></Link>
             </div>
-        </body>
+        </div>
     );
 }

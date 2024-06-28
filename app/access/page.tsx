@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import '/app/green.css';
 
 export default function Access() {
     return (
-        <body className="green-bg">
+        <div >
             <div className="Main">
                 <div >
                     <Image src="/Imagenes/cuadra.png" width={430} height={197} style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: 60 }} alt="Imagen de la cuadra de Golfito" />
@@ -26,7 +27,7 @@ export default function Access() {
                 </div>
 
             </div>
-        </body>
+        </div>
     );
 
 

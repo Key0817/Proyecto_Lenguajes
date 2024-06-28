@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import '../conf.css';
+
 
 export default function CambaiarPass() {
     return (
-        <body className="white-bg">
+        <div className="white-bg">
             <nav className="navbarEF">
                 <Link href="/configuraciones/editProfile"><Image src='/Iconos/flechaAtras.png' width={50} height={53} style={{ marginTop: 15 }} alt='Flecha de retroceso' /></Link>
                 <div id="center">
@@ -28,6 +30,6 @@ export default function CambaiarPass() {
                 <Link className="btnI" href='/configuraciones/editProfile'>Actualizar</Link>
 
             </section>
-        </body>
+        </div>
     );
 }
