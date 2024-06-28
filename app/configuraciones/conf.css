@@ -4,17 +4,11 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  max-width: 100%;
+  width: 100%;
   background-color: #ffffff;
 }
 
-/* Estilo para la pantalla blanca */
-.white-bg {
-  background-color: #ffffff;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+
 
 
 /* <<<<< Estilos Para las pantallas del login y acceso >>>>>*/
@@ -23,7 +17,7 @@ html {
 /* Estilos para la parte de acceso */
 .Main {
   background: #5E665C;
-  max-width: 100%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   text-align: center;
