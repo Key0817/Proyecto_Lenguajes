@@ -4,26 +4,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import '/app/green.css';
+// Importaciones para la autenticación con Google 
+import { useUserSession } from '../../../components/hook/userSesion';
+import { signInWithGoogle, signOutWithGoogle } from '../../Firebase/auth';
+import { createSession, removeSession } from '../../../components/actions/actionSesion';
 
 // Importaciones para Firebase
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { collection, doc, setDoc, getFirestore } from "firebase/firestore";
-import { auth, app } from '../../Firebase/AccesoFirebase';
+import { setDoc, doc, getFirestore } from "firebase/firestore";
+import { app } from '../../Firebase/AccesoFirebase';
+import { getAuth } from 'firebase/auth';
 
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 export default function SignIn() {
     const router = useRouter();
-    
+
     // Estado inicial del usuario
     const [user, setUser] = useState({
         nombre: '',
         primerApellido: '',
         segundoApellido: '',
         cedula: '',
-        correo: '',
-        contraseña: '',
-        confContraseña: '',
     });
 
     // Función para manejar cambios en los inputs
@@ -32,21 +34,11 @@ export default function SignIn() {
         setUser({ ...user, [name]: value });
     };
 
-    // Validar que la contraseña y la confirmación coincidan
-    const validarContraseñas = () => {
-        return user.contraseña === user.confContraseña;
-    };
-
     // Función para crear un nuevo usuario
     const crearUsuario = async () => {
-        if (!validarContraseñas()) {
-            alert("Las contraseñas no coinciden");
-            return;
-        }
-
         try {
-            // Crear el usuario en Firebase Authentication
-            const userCredential = await createUserWithEmailAndPassword(auth, user.correo, user.contraseña);
+            // Crear el usuario en Firebase Authentication con Google
+            const userCredential = await signInWithGoogle();
             const uid = userCredential.user.uid;
 
             // Guardar otros datos del usuario en Firestore
@@ -55,9 +47,11 @@ export default function SignIn() {
                 primerApellido: user.primerApellido,
                 segundoApellido: user.segundoApellido,
                 cedula: user.cedula,
-                correo: user.correo, // Guardamos el correo en Firestore
-                imagenPerfil: '' // Inicialmente vacío, se puede actualizar en EditProfile
+                imagenPerfil: ''
             });
+
+            // Crear sesión del usuario
+            await createSession(uid);
 
             alert('El usuario se registró correctamente');
             router.push('/configuraciones');
@@ -77,15 +71,12 @@ export default function SignIn() {
                 <input name='nombre' value={user.nombre} onChange={handleChangeText} className="TXTinputs" type="text" placeholder="Nombre:" />
                 <input name='primerApellido' value={user.primerApellido} onChange={handleChangeText} className="TXTinputs" type="text" placeholder="Primer Apellido:" />
                 <input name='segundoApellido' value={user.segundoApellido} onChange={handleChangeText} className="TXTinputs" type="text" placeholder="Segundo Apellido:" />
-                <input name='cedula' value={user.cedula} onChange={handleChangeText} className="TXTinputs" type="number" placeholder="Cedula:" />
-                <input name='correo' value={user.correo} onChange={handleChangeText} className="TXTinputs" type="email" placeholder="Correo:" />
-                <input name='contraseña' value={user.contraseña} onChange={handleChangeText} className="TXTinputs" type="password" placeholder="Contraseña:" />
-                <input name='confContraseña' value={user.confContraseña} onChange={handleChangeText} className="TXTinputs" type="password" placeholder="Confirmar contraseña:" />
+                <input name='cedula' value={user.cedula} onChange={handleChangeText} className="TXTinputs" type="number" placeholder="Cédula:" />
             </div>
             <div className="ENDL">
                 <button className='btnI' onClick={crearUsuario}>Crear Cuenta</button>
                 <br />
-                <Link className="having" href={'/login'}>¿Ya tienes una cuenta? <span>Iniciar sesión</span></Link>
+                <Link className="having" href={'/access'}>¿Ya tienes una cuenta? <span>Iniciar sesión</span></Link>
             </div>
             <div className="Spacer"></div>
             <div className="card">

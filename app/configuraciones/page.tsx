@@ -1,9 +1,49 @@
-import React from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import '/app/configuraciones/conf.css'
+import { auth, app } from '../Firebase/AccesoFirebase';
+import { Auth } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import '/app/configuraciones/conf.css';
+
+const db = getFirestore(app);
+
+interface UserData {
+    nombre: string;
+    primerApellido: string;
+    segundoApellido: string;
+    correo: string;
+    imagenPerfil: string;
+    cedula: string;
+}
 
 export default function Perfil() {
+    const [userData, setUserData] = useState<UserData | null>(null);
+    const [uid, setUid] = useState('');
+
+    useEffect(() => {
+        const user = auth.currentUser;
+        if (user) {
+            setUid(user.uid);
+            obtenerDatosUsuario(user.uid);
+        }
+    }, []);
+
+    const obtenerDatosUsuario = async (uid: string) => {
+        try {
+            const userDoc = await getDoc(doc(db, 'User', uid));
+            if (userDoc.exists()) {
+                const data = userDoc.data() as UserData;
+                setUserData(data);
+            } else {
+                console.log("No such document!");
+            }
+        } catch (error) {
+            console.error("Error al obtener los datos del usuario: ", error);
+        }
+    };
+
     return (
         <div className="white-bg">
             <nav className="navbarconf">
@@ -12,16 +52,20 @@ export default function Perfil() {
             </nav>
 
             <div className="TOP">
-                <Image src={'/Iconos/Perfil.png'} width={131} height={121} alt="imagen de perfil" />
-                <h5 id="correo">Correo@gmail.com</h5>
+                {userData ? (
+                    <Image src={userData.imagenPerfil || '/Iconos/Perfil.png'} width={131} height={121} alt="Imagen de perfil" />
+                ) : (
+                    <Image src='/Iconos/Perfil.png' width={131} height={121} alt="Imagen de perfil" />
+                )}
+                <h5 id="correo">{auth.currentUser?.email}</h5>
             </div>
 
-            <h2 className="Titulo">Nombre Usuario</h2>
+            <h2 className="Titulo">{userData ? `${userData.nombre} ${userData.primerApellido} ${userData.segundoApellido}` : "Nombre Usuario"}</h2>
 
             <div className="LineaA"></div>
 
             <div className="MTP">
-                <h3 id="subtitulo"> Métodos de Pago</h3>
+                <h3 id="subtitulo">Métodos de Pago</h3>
 
                 <Link className="MTPE" href='/configuraciones/efectivo'>
                     <Image src={'/Iconos/Efectivo.png'} width={35} height={35} alt="Imagen de cash" />
@@ -53,8 +97,8 @@ export default function Perfil() {
 
             <div className="Spacer"></div>
 
-            <div className="tabnav" >
-                <Link href='/'> <Image src={'/Iconos/Principal.png'} width={50} height={50} alt="Icono de casita" /></Link>
+            <div className="tabnav">
+                <Link href='/'><Image src={'/Iconos/Principal.png'} width={50} height={50} alt="Icono de casita" /></Link>
                 <Link href='/configuraciones'><Image id="perfile" src={'/Iconos/Usuario.png'} width={50} height={50} alt="Icono de usuario" /></Link>
             </div>
         </div>

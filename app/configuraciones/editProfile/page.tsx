@@ -18,6 +18,7 @@ interface UserData {
     segundoApellido: string;
     correo: string;
     imagenPerfil: string;
+    cedula: string; 
 }
 
 export default function EditProfile() {
@@ -28,7 +29,8 @@ export default function EditProfile() {
         primerApellido: '',
         segundoApellido: '',
         correo: '',
-        imagenPerfil: ''
+        imagenPerfil: '',
+        cedula: '' 
     });
     const [uid, setUid] = useState('');
 
@@ -38,7 +40,7 @@ export default function EditProfile() {
             setUid(user.uid);
             obtenerDatosUsuario(user.uid);
         } else {
-            router.push('/login');
+            router.push('/access');
         }
     }, [router]);
 
@@ -56,11 +58,23 @@ export default function EditProfile() {
         }
     };
 
-
-    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (file) {
             setSelectedImage(file);
+
+            const storage = getStorage(app);
+            const storageRef = ref(storage, `profileImages/${uid}`);
+            try {
+                await uploadBytes(storageRef, file);
+                const imageUrl = await getDownloadURL(storageRef);
+                await updateDoc(doc(db, 'User', uid), { imagenPerfil: imageUrl });
+                setUserData({ ...userData, imagenPerfil: imageUrl });
+                alert('Imagen de perfil actualizada correctamente');
+            } catch (error) {
+                console.error("Error al subir la imagen: ", error);
+                alert("Hubo un error al subir la imagen");
+            }
         }
     };
 
@@ -68,27 +82,10 @@ export default function EditProfile() {
         document.getElementById('fileInput')?.click();
     };
 
-    const handleImageUpload = async () => {
-        if (!selectedImage || !uid) return;
-
-        const storage = getStorage(app);
-        const storageRef = ref(storage, `profileImages/${uid}`);
-        try {
-            await uploadBytes(storageRef, selectedImage);
-            const imageUrl = await getDownloadURL(storageRef);
-            await updateDoc(doc(db, 'User', uid), { imagenPerfil: imageUrl });
-            setUserData({ ...userData, imagenPerfil: imageUrl });
-            alert('Imagen de perfil actualizada correctamente');
-        } catch (error) {
-            console.error("Error al subir la imagen: ", error);
-            alert("Hubo un error al subir la imagen");
-        }
-    };
-
     const cerrarSesion = async () => {
         try {
             await auth.signOut();
-            router.push('/login');
+            router.push('/access');
         } catch (error) {
             console.error("Error al cerrar sesión: ", error);
             alert("Hubo un error al intentar cerrar sesión");
@@ -125,7 +122,6 @@ export default function EditProfile() {
                     id="fileInput"
                     style={{ display: 'none' }}
                 />
-                <button onClick={handleImageUpload}>Actualizar Imagen</button>
             </div>
 
             <div className="MTP">
@@ -137,17 +133,17 @@ export default function EditProfile() {
 
                 <div className="LineaN"></div>
 
-                <Link className="MTPE"  href='/configuraciones/changeEmail'>
+                <div className="MTPE">
                     <Image src={'/Iconos/Email.png'} width={35} height={35} alt="Imagen de email" />
-                    <p>{userData.correo}</p>
+                    <p>{auth.currentUser?.email}</p>
                     <Image src={'/Iconos/flechaAtras.png'} width={30} height={30} style={{ transform: 'scaleX(-1)' }} alt="Flecha hacia adelante" />
-                </Link>
+                </div>
 
                 <div className="LineaN"></div>
 
-                <Link className="MTPE" href='/configuraciones/chagePass'>
-                    <Image src={'/Iconos/Seguridad.png'} width={35} height={35} alt="Imagen de seguridad" />
-                    <p>**********</p>
+                <Link className="MTPE" href={'/configuraciones/chagePass'} >
+                    <Image src={'/Iconos/Seguridad.png'} width={35} height={35} alt="Imagen de cédula" />
+                    <p>{userData.cedula}</p>
                     <Image src={'/Iconos/flechaAtras.png'} width={30} height={30} style={{ transform: 'scaleX(-1)' }} alt="Flecha hacia adelante" />
                 </Link>
             </div>
