@@ -63,7 +63,11 @@ export default function Access() {
                     <h4 className="footti2">Sistema de Horarios de Transporte</h4>
                 </div>
 
-                <Link href={'/home'} >Inicio </Link>
+                <Link href={'/home'} >mapa y busqueda </Link>
+                <br></br>
+                <Link href={'/home/home2'} >solo busqueda </Link>
+                <br></br>
+                <Link href={'/home/home3'} >ruta fija </Link>
             </div>
         </div>
     );
