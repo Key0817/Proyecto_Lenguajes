@@ -62,6 +62,8 @@ export default function Access() {
                     <h3 className="footti">S.H.T Golfito</h3>
                     <h4 className="footti2">Sistema de Horarios de Transporte</h4>
                 </div>
+
+                <Link href={'/home'} >Inicio </Link>
             </div>
         </div>
     );
