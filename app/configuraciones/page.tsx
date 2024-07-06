@@ -98,7 +98,7 @@ export default function Perfil() {
             <div className="Spacer"></div>
 
             <div className="tabnav">
-                <Link href='/'><Image src={'/Iconos/Principal.png'} width={50} height={50} alt="Icono de casita" /></Link>
+                <Link href='/home'><Image src={'/Iconos/Principal.png'} width={50} height={50} alt="Icono de casita" /></Link>
                 <Link href='/configuraciones'><Image id="perfile" src={'/Iconos/Usuario.png'} width={50} height={50} alt="Icono de usuario" /></Link>
             </div>
         </div>

@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import '/app/configuraciones/conf.css';
 
 // Importaciones para Firebase
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, doc, updateDoc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, updateDoc, deleteDoc,getDoc } from "firebase/firestore";
 import { auth, app } from '../../Firebase/AccesoFirebase';
 
 const db = getFirestore(app);
@@ -70,7 +70,7 @@ export default function EditProfile() {
                 const imageUrl = await getDownloadURL(storageRef);
                 await updateDoc(doc(db, 'User', uid), { imagenPerfil: imageUrl });
                 setUserData({ ...userData, imagenPerfil: imageUrl });
-                alert('Imagen de perfil actualizada correctamente');
+                //alert('Imagen de perfil actualizada correctamente');
             } catch (error) {
                 console.error("Error al subir la imagen: ", error);
                 alert("Hubo un error al subir la imagen");
@@ -82,13 +82,14 @@ export default function EditProfile() {
         document.getElementById('fileInput')?.click();
     };
 
-    const cerrarSesion = async () => {
+    const removeSession = async () => {
         try {
-            await auth.signOut();
-            router.push('/access');
+            await deleteDoc(doc(db, 'Sessions', uid));
+            //alert('Sesión cerrada correctamente');
+            router.push('/access'); // Redirigir a la página de acceso después de cerrar sesión
         } catch (error) {
-            console.error("Error al cerrar sesión: ", error);
-            alert("Hubo un error al intentar cerrar sesión");
+            console.error("Error al eliminar sesión:", error);
+            alert("Hubo un error al cerrar sesión");
         }
     };
 
@@ -106,7 +107,7 @@ export default function EditProfile() {
 
             <div className="TOP" onClick={handleImageClick}>
                 {selectedImage ? (
-                    <img src={URL.createObjectURL(selectedImage)} alt="Imagen de perfil" />
+                    <Image src={URL.createObjectURL(selectedImage)} alt="Imagen de perfil" />
                 ) : (
                     <Image
                         src={userData.imagenPerfil || "/Iconos/Perfil.png"}
@@ -148,7 +149,7 @@ export default function EditProfile() {
                 </Link>
             </div>
             <div className="Spacer"></div>
-            <div className="CONF" onClick={cerrarSesion}>
+            <div className="CONF" onClick={removeSession}>
                 <Image src={'/Iconos/CerrarSesion.png'} width={35} height={35} alt="Imagen de cerrar sesión" />
                 <p>Cerrar Sesión</p>
             </div>

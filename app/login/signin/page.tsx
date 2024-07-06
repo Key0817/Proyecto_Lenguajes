@@ -53,8 +53,8 @@ export default function SignIn() {
             // Crear sesión del usuario
             await createSession(uid);
 
-            alert('El usuario se registró correctamente');
-            router.push('/configuraciones');
+            //alert('El usuario se registró correctamente');
+            router.push('/home');
         } catch (error) {
             console.error("Error al registrar usuario: ", error);
             alert("Hubo un error al registrar el usuario");

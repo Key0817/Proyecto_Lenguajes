@@ -71,6 +71,11 @@ html {
 
 }
 
+#home {
+  border-bottom: 4px solid #0010EE;
+}
+
+
 
 .footti {
   font-size: 18px;

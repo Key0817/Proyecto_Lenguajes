@@ -316,6 +316,10 @@ html {
   border-bottom: 4px solid #0010EE;
 }
 
+#home {
+  border-bottom: 4px solid #0010EE;
+}
+
 /* Estilos en la pantalla de efectivo */
 .textboxEf {
   background-color: #C4C4C4;

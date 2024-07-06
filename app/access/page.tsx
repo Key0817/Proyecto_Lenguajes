@@ -1,40 +1,40 @@
-"use client";
+'use client';
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import '/app/green.css';
-// Importaciones para la autenticación con Google
 import { signInWithGoogle } from '../Firebase/auth';
-import { createSession, removeSession } from '../../components/actions/actionSesion';
+import { createSession } from '../../components/actions/actionSesion';
 import { getAuth, getIdTokenResult } from "firebase/auth";
 
 export default function Access() {
     const router = useRouter();
 
-    // Función para iniciar sesión con Google
     const iniciarSesionConGoogle = async () => {
         try {
             const userCredential = await signInWithGoogle();
             if (!userCredential.user) {
                 throw new Error("No user in userCredential");
             }
+
             const auth = getAuth();
             const user = auth.currentUser;
             if (!user) {
                 throw new Error("User not found after sign-in");
             }
+
             const tokenResult = await getIdTokenResult(user);
             const isNewUser = tokenResult.claims['isNewUser'];
 
             if (isNewUser) {
                 router.push('/signin');
+                alert('Correo no registrado. Serás redirigido para crear una cuenta.');
             } else {
                 const uid = user.uid;
                 await createSession(uid);
-
-                alert('Inicio de sesión exitoso');
-                router.push('/configuraciones');
+                // alert('Inicio de sesión exitoso');
+                router.push('/home');
             }
         } catch (error) {
             console.error("Error al iniciar sesión: ", error);
@@ -57,21 +57,11 @@ export default function Access() {
                     <Link className='btnI' href={'login/signin'}>Crear Cuenta</Link>
                 </div>
 
-                <div>
-                    <Link href={'/home'} >mapa y busqueda </Link>
-                    <br></br>
-                    <Link href={'/home/home2'} >solo busqueda </Link>
-                    <br></br>
-                    <Link href={'/home/home3'} >ruta fija </Link>
-                </div>
-                
                 <div className="Spacer"></div>
                 <div className="card">
                     <h3 className="footti">S.H.T Golfito</h3>
                     <h4 className="footti2">Sistema de Horarios de Transporte</h4>
                 </div>
-
-
             </div>
         </div>
     );

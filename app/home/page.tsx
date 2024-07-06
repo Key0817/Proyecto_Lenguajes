@@ -2,6 +2,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import GooglePlacesAutocomplete, { geocodeByPlaceId, getLatLng } from 'react-google-places-autocomplete';
 import { GoogleMap, Marker, DirectionsRenderer } from '@react-google-maps/api';
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const [scriptLoaded, setScriptLoaded] = useState(false);
@@ -155,6 +157,12 @@ export default function Home() {
           <p>Duración: {Math.floor(duracion! / 60)} minutos</p>
         </div>
       )}
+      <div className="Spacer"></div>
+      
+      <div className="tabnav">
+        <Link href='/home'><Image id='home' src={'/Iconos/Principal.png'} width={50} height={50} alt="Icono de casita" /></Link>
+        <Link href='/configuraciones'><Image src={'/Iconos/Usuario.png'} width={50} height={50} alt="Icono de usuario" /></Link>
+      </div>
     </div>
   );
 }
