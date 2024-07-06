@@ -57,17 +57,21 @@ export default function Access() {
                     <Link className='btnI' href={'login/signin'}>Crear Cuenta</Link>
                 </div>
 
+                <div>
+                    <Link href={'/home'} >mapa y busqueda </Link>
+                    <br></br>
+                    <Link href={'/home/home2'} >solo busqueda </Link>
+                    <br></br>
+                    <Link href={'/home/home3'} >ruta fija </Link>
+                </div>
+                
                 <div className="Spacer"></div>
                 <div className="card">
                     <h3 className="footti">S.H.T Golfito</h3>
                     <h4 className="footti2">Sistema de Horarios de Transporte</h4>
                 </div>
 
-                <Link href={'/home'} >mapa y busqueda </Link>
-                <br></br>
-                <Link href={'/home/home2'} >solo busqueda </Link>
-                <br></br>
-                <Link href={'/home/home3'} >ruta fija </Link>
+
             </div>
         </div>
     );

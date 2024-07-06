@@ -13,7 +13,7 @@ export default function Busqueda(){
     useEffect(() => {
       const googleMapsScript = document.createElement('script');
       googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&libraries=places`;
-      googleMapsScript.async = false; // Carga sincrónica del script
+      googleMapsScript.async = false; 
       window.document.body.appendChild(googleMapsScript);
   
       googleMapsScript.addEventListener('load', () => {
